@@ -5,10 +5,19 @@ namespace ExpenseManagament.API.Controllers;
 [Route("api/[controller]")]
 public class ValuesController : ControllerBase
 {
+    private readonly ILogger _logger;
+
+    public ValuesController(ILogger<ValuesController> logger)
+    {
+        _logger = logger;
+    }
+
+
     // GET api/values
     [HttpGet]
     public IEnumerable<string> Get()
     {
+        _logger.LogInformation("Get method called");
         return new string[] { "value1", "value2" };
     }
 
