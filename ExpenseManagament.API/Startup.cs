@@ -20,14 +20,15 @@ public class Startup
     // This method gets called by the runtime. Use this method to add services to the container
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddControllers();
+
         services.AddEntityFrameworkNpgsql().AddDbContext<ApplicationDbContext>(options =>
         options.UseNpgsql(Configuration.GetConnectionString("ConStr")));
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         services.AddSwaggerGen();
+        services.AddControllers();
         services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         services.AddScoped<IMasterService, MasterService>();
-        
+
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline
@@ -38,9 +39,9 @@ public class Startup
         {
             app.UseDeveloperExceptionPage();
         }
-
+        app.UseStaticFiles();
         app.UseSwagger();
-        app.UseSwaggerUI(x => x.SwaggerEndpoint("/swagger/v1/swagger.json", "ExpenseManagement"));
+        app.UseSwaggerUI(x => x.SwaggerEndpoint("/swagger/v1/swagger.json", "ExpenseManagement API"));
         app.UseHttpsRedirection();
         app.UseRouting();
 
