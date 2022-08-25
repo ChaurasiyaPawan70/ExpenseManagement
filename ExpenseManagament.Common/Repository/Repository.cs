@@ -14,7 +14,7 @@ namespace ExpenseManagament.Common.Repository
     public class Repository<T> : IRepository<T> where T : class
     {
         private readonly ApplicationDbContext _applicationDbContext;
-        private DbSet<T> entities;
+        private readonly DbSet<T> entities;
 
         public Repository(ApplicationDbContext applicationDbContext)
         {
@@ -36,7 +36,7 @@ namespace ExpenseManagament.Common.Repository
         }
         public IEnumerable<T> GetAll()
         {
-            return _applicationDbContext.Set<T>().ToList();
+            return entities.AsEnumerable();
         }
         public T GetById(int id)
         {

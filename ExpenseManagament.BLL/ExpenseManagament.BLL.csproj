@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ExpenseServices\" />
-    <Folder Include="IExpenseServices\" />
+    <ProjectReference Include="..\ExpenseManagament.Common\ExpenseManagament.Common.csproj" />
+    <ProjectReference Include="..\ExpenseManagament.DAL\ExpenseManagament.DAL.csproj" />
   </ItemGroup>
 
 </Project>
