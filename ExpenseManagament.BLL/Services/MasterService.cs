@@ -1,5 +1,6 @@
 ﻿using ExpenseManagament.BLL.Interface;
 using ExpenseManagament.Common.IRepository;
+using ExpenseManagament.DAL.Enum;
 using ExpenseManagament.DAL.Models;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace ExpenseManagament.BLL.Services
 
         public IEnumerable<PurposeMaster> GetPurpose()
         {
-           return this._repo.GetAll();
+            return this._repo.GetAll().Where(c => c.Active ==(int)Status.Active);
         }
     }
 }
