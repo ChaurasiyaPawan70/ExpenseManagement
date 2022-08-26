@@ -10,5 +10,8 @@ namespace ExpenseManagament.BLL.Interface
     public interface IMasterService
     {
         IEnumerable<PurposeMaster> GetPurpose();
+        IEnumerable<CurrencyMaster> GetCurrency();
+
+
     }
 }

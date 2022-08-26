@@ -21,7 +21,14 @@ namespace ExpenseManagament.BLL.Services
 
         public IEnumerable<PurposeMaster> GetPurpose()
         {
-           return _dbContext.PurposeMaster.ToList();
+            return _dbContext.PurposeMaster.ToList();
         }
+
+        public IEnumerable<CurrencyMaster> GetCurrency() 
+        {
+            return this._dbContext.CurrencyMaster.ToList(); 
+        }
+
+
     }
 }

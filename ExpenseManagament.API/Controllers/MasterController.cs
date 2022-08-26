@@ -20,5 +20,12 @@ namespace ExpenseManagament.API.Controllers
         {
             return Ok(_masterService.GetPurpose());
         }
+
+        [HttpGet]
+        [Route("GetCurrency")]
+        public IActionResult GetCurrency()
+        {
+            return Ok(_masterService.GetCurrency());
+        }
     }
 }
