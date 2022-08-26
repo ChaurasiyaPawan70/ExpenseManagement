@@ -1,7 +1,5 @@
 using ExpenseManagament.BLL.Interface;
 using ExpenseManagament.BLL.Services;
-using ExpenseManagament.Common.IRepository;
-using ExpenseManagament.Common.Repository;
 using ExpenseManagament.DAL.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
@@ -26,7 +24,6 @@ public class Startup
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         services.AddSwaggerGen();
         services.AddControllers();
-        services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         services.AddScoped<IMasterService, MasterService>();
 
     }

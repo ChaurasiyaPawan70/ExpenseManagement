@@ -1,5 +1,5 @@
 ﻿using ExpenseManagament.BLL.Interface;
-using ExpenseManagament.Common.IRepository;
+using ExpenseManagament.DAL.Data;
 using ExpenseManagament.DAL.Enum;
 using ExpenseManagament.DAL.Models;
 using System;
@@ -10,18 +10,18 @@ using System.Threading.Tasks;
 
 namespace ExpenseManagament.BLL.Services
 {
+
     public class MasterService : IMasterService
     {
-        private IRepository<PurposeMaster> _repo;
-
-        public MasterService(IRepository<PurposeMaster> repo)
+        private readonly ApplicationDbContext _dbContext;
+        public MasterService(ApplicationDbContext dbContext)
         {
-            _repo = repo;
+            _dbContext = dbContext;
         }
 
         public IEnumerable<PurposeMaster> GetPurpose()
         {
-            return this._repo.GetAll().Where(c => c.Active ==(int)Status.Active);
+           return _dbContext.PurposeMaster.ToList();
         }
     }
 }

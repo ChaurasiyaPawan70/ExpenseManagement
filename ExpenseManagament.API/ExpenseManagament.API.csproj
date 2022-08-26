@@ -23,7 +23,6 @@
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\ExpenseManagament.BLL\ExpenseManagament.BLL.csproj" />
-		<ProjectReference Include="..\ExpenseManagament.Common\ExpenseManagament.Common.csproj" />
 		<ProjectReference Include="..\ExpenseManagament.DAL\ExpenseManagament.DAL.csproj" />
 	</ItemGroup>
 </Project>
