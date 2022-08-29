@@ -1,17 +1,11 @@
-﻿using ExpenseManagament.DAL.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using ExpenseManagament.DAL.DTO;
 namespace ExpenseManagament.BLL.Interface
 {
     public interface IMasterService
     {
-        IEnumerable<PurposeMaster> GetPurpose();
-        IEnumerable<CurrencyMaster> GetCurrency();
-
+        IEnumerable<PurposeMasterDTO> GetPurposes();
+        IEnumerable<CurrencyMasterDTO> GetCurrencies();
+        IEnumerable<CategoryMasterDTO> GetCategories(int purposeId);
 
     }
 }

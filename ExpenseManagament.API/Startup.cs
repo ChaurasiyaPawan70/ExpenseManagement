@@ -1,6 +1,7 @@
 using ExpenseManagament.BLL.Interface;
 using ExpenseManagament.BLL.Services;
 using ExpenseManagament.DAL.Data;
+using ExpenseManagament.DAL.Mapping;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,7 +22,7 @@ public class Startup
 
         services.AddEntityFrameworkNpgsql().AddDbContext<ApplicationDbContext>(options =>
         options.UseNpgsql(Configuration.GetConnectionString("ConStr")));
-        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+        services.AddAutoMapper(typeof(MasterMapper));
         services.AddSwaggerGen();
         services.AddControllers();
         services.AddScoped<IMasterService, MasterService>();

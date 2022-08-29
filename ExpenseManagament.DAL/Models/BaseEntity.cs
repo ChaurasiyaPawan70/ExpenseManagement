@@ -8,9 +8,13 @@ namespace ExpenseManagament.DAL.Models
 {
     public class BaseEntity
     {
-        public int Id { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime UpdatedDate { get; set; }
-        public bool IsActive { get; set; }
+       
+        public int CreatedBy { get; set; }
+        public int UpdatedBy { get; set; }
+        public DateTime CreatedOn { get; set; }
+        public DateTime UpdatedOn { get; set; }
+        public int Active { get; set; }
+        public int DeactivatedBy { get; set; }
+        public DateTime DeactivatedOn { get; set; }
     }
 }

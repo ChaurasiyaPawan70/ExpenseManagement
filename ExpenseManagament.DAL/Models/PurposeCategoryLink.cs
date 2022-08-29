@@ -8,11 +8,12 @@ using System.Threading.Tasks;
 
 namespace ExpenseManagament.DAL.Models
 {
-    public class CurrencyMaster 
+    public class PurposeCategoryLink 
     {
         [Key]
-        public int CurrencyId { get; set; }
-        public string CurrencyCode { get; set; }
+        public int RecId { get; set; }
+        public int PurposeId { get; set; }
+        public int CategoryId { get; set; }
         public int Active { get; set; }
     }
 }

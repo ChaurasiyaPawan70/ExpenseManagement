@@ -1,5 +1,6 @@
 ﻿using ExpenseManagament.BLL.Interface;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace ExpenseManagament.API.Controllers
 {
@@ -9,6 +10,7 @@ namespace ExpenseManagament.API.Controllers
     {
         private readonly IMasterService _masterService;
 
+
         public MasterController(IMasterService masterService)
         {
             _masterService = masterService;
@@ -16,16 +18,23 @@ namespace ExpenseManagament.API.Controllers
 
         [HttpGet]
         [Route("GetPurpose")]
-        public IActionResult GetPurpose()
+        public IActionResult GetPurposes()
         {
-            return Ok(_masterService.GetPurpose());
+            return Ok(_masterService.GetPurposes());
         }
 
         [HttpGet]
         [Route("GetCurrency")]
-        public IActionResult GetCurrency()
+        public IActionResult GetCurrencies()
         {
-            return Ok(_masterService.GetCurrency());
+            return Ok(_masterService.GetCurrencies());
+        }
+
+        [HttpGet]
+        [Route("GetCategories")]
+        public IActionResult GetCategories([BindRequired] int purposeId)
+        {
+            return Ok(_masterService.GetCategories(purposeId));
         }
     }
 }

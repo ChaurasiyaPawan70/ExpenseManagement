@@ -19,6 +19,8 @@ namespace ExpenseManagament.DAL.Data
         }
         public DbSet<PurposeMaster> PurposeMaster { get; set; }
         public DbSet<CurrencyMaster> CurrencyMaster { get; set; }
+        public DbSet<CategoryMaster> CategoryMaster { get; set; }
+        public DbSet<PurposeCategoryLink> PurposeCategoryLink { get; set; }
 
 
     }
